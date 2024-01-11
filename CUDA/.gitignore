@@ -1,0 +1,8 @@
+bin/*.obj
+bin/*.exe
+bin/*.lib
+bin/*.exp
+# Linux Executable
+bin/AES 
+
+data/*
