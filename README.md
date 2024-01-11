@@ -1,10 +1,15 @@
 # Data-Compression-Encryption-GPGPU
 A Data Compression and Encryption tool which makes use of GPU to obtain time and power efficiency
 
-## Cross-Platform Flutter Desktop App For Detecting GPUs ##
+### Currently Working Platforms ###
 
-### Currently runs perfectly on Linux and Windows ###
+## Code Organization ##
+1. CPU - Contains Serial C and CPP based code that runs on CPU in single threaded mode
+2. CUDA - Contains Parallel code that runs on Nvidia GPUs
+3. OpenCL - Contains Parallel code that runs on AMD, Intel and Nvidia GPUs
+4. flutter_app - Contains the UI client application code
 
+# Flutter App #
 To run the app in Debug Mode, simply run the below command
 ```shell
 flutter run
