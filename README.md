@@ -4,8 +4,8 @@ A Data Compression and Encryption tool which makes use of GPU to obtain time and
 ### Currently Working Platforms ###
 
 - [x] Windows 11/10 64-bit
-- [] Linux
-- [] macOS
+- [ ] Linux
+- [ ] macOS
 
 ## Code Organization ##
 1. CPU - Contains Serial C and CPP based code that runs on CPU in single threaded mode
