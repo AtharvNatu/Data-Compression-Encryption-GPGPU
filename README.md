@@ -7,6 +7,15 @@ A Data Compression and Encryption tool which makes use of GPU to obtain time and
 - [ ] Linux
 - [ ] macOS
 
+### Tested GPUs
+
+- [x] AMD Radeon RX6600
+- [x] NVIDIA GeForce RTX 3060
+- [x] NVIDIA GeForce RTX 3050 Mobile
+- [x] NVIDIA GeForce GTX 1650 Mobile
+- [x] Intel UHD 630
+- [ ] NVIDIA GeForce GTX 1660 Super
+
 ## Code Organization ##
 1. CPU - Contains Serial C and CPP based code that runs on CPU in single threaded mode
 2. CUDA - Contains Parallel code that runs on Nvidia GPUs
