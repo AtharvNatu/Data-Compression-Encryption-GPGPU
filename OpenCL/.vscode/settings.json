@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+		"*.ejs": "html",
+		"iostream": "cpp",
+		"ostream": "cpp",
+		"atomic": "cpp",
+		"charconv": "cpp",
+		"forward_list": "cpp",
+		"ios": "cpp",
+		"list": "cpp",
+		"locale": "cpp",
+		"memory": "cpp",
+		"optional": "cpp",
+		"random": "cpp",
+		"sstream": "cpp",
+		"streambuf": "cpp",
+		"xiosbase": "cpp",
+		"xlocale": "cpp",
+		"xlocbuf": "cpp",
+		"xlocmes": "cpp",
+		"xlocmon": "cpp",
+		"xlocnum": "cpp",
+		"xloctime": "cpp",
+		"xmemory": "cpp",
+		"xstring": "cpp"
+	}
+}
