@@ -144,6 +144,8 @@ double aes_ocl_encrypt(const char *input_path, const char *output_path, const ch
     clfw->host_release_mem(&h_ciphertext);
     clfw->host_release_mem(&h_plaintext);
 
+    clfw->uninitialize();
+
     delete clfw;
     clfw = nullptr;
 
@@ -225,6 +227,8 @@ double aes_ocl_decrypt(const char *input_path, const char *output_path, const ch
 
     clfw->host_release_mem(&h_plaintext);
     clfw->host_release_mem(&h_ciphertext);
+
+    clfw->uninitialize();
 
     delete clfw;
     clfw = nullptr;

@@ -54,7 +54,8 @@ class ChooseFile extends State<FilePickBench> {
     'heif',
     'jpeg',
     'tif',
-    'enc'
+    'enc',
+    'obj'
   ];
   String fileExt = "";
   String selectedFileName = "";
@@ -95,7 +96,8 @@ class ChooseFile extends State<FilePickBench> {
         'heif',
         'jpeg',
         'tif',
-        'enc'
+        'enc',
+        'obj'
       ],
     );
 
@@ -158,7 +160,8 @@ class ChooseFile extends State<FilePickBench> {
         'heif',
         'jpeg',
         'tif',
-        'enc'
+        'enc',
+        'obj'
       ],
     );
 
@@ -222,8 +225,11 @@ class ChooseFile extends State<FilePickBench> {
     filePath = filePath.replaceAll("CPU", "GPU");
 
     if (fileExt == "enc" &&
-        gpuInfo.contains("NVIDIA") &&
-        selectedFileName.contains("txt.enc")) {
+            gpuInfo.contains("NVIDIA") &&
+            selectedFileName.contains("txt.enc") ||
+        fileExt == "enc" &&
+            gpuInfo.contains("NVIDIA") &&
+            selectedFileName.contains("obj.enc")) {
       filePath = "${filePath.substring(0, filePath.length - 4)}.huff.enc";
     }
     final inputGPUPath = filePath.toNativeUtf8();
@@ -247,7 +253,7 @@ class ChooseFile extends State<FilePickBench> {
     final oclEncPath = oclEncryptKernelPath.toNativeUtf8();
     final oclDecPath = oclDecryptKernelPath.toNativeUtf8();
 
-    if (fileExt != "txt" && fileExt != "enc") {
+    if (fileExt != "txt" && fileExt != "enc" && fileExt != "obj") {
       cpuTime = aesCPUEncrypt(inputCPUPath, outputCPUPath, password);
       gpuTime = gpuInfo.contains("NVIDIA")
           ? aesCUDAEncrypt(inputGPUPath, outputGPUPath, password)
@@ -257,13 +263,14 @@ class ChooseFile extends State<FilePickBench> {
       gpuTime = gpuInfo.contains("NVIDIA")
           ? aesCUDADecrypt(inputGPUPath, outputGPUPath, password)
           : aesOpenCLDecrypt(inputGPUPath, outputGPUPath, password, oclDecPath);
-    } else if (fileExt == "txt") {
+    } else if (fileExt == "txt" || fileExt == "obj") {
       cpuTime = aesCPUHuffmanEncrypt(inputCPUPath, outputCPUPath, password);
       gpuTime = gpuInfo.contains("NVIDIA")
           ? aesCUDAHuffmanEncrypt(inputGPUPath, outputGPUPath, password)
           : aesOpenCLHuffmanEncrypt(
               inputGPUPath, outputGPUPath, password, oclEncPath);
-    } else if (fileExt == "enc" && selectedFileName.contains("txt.enc")) {
+    } else if ((fileExt == "enc" && selectedFileName.contains("txt.enc")) ||
+        (fileExt == "enc" && selectedFileName.contains("obj.enc"))) {
       cpuTime = aesCPUHuffmanDecrypt(inputCPUPath, outputCPUPath, password);
       gpuTime = gpuInfo.contains("NVIDIA")
           ? aesCUDAHuffmanDecrypt(inputGPUPath, outputGPUPath, password)

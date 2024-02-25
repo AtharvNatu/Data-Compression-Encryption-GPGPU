@@ -53,7 +53,8 @@ class ChooseFile extends State<FilePickLive> {
     'heif',
     'jpeg',
     'tif',
-    'enc'
+    'enc',
+    'obj'
   ];
   String fileExt = "";
   String selectedFileName = "";
@@ -92,7 +93,8 @@ class ChooseFile extends State<FilePickLive> {
           'heif',
           'jpeg',
           'tif',
-          'enc'
+          'enc',
+          'obj'
         ]);
 
     if (result != null) {
